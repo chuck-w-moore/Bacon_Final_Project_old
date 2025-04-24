@@ -1,4 +1,21 @@
-﻿using System;
+﻿/*
+ * File Name : Solution #2127.cs
+ * Student Name: Chuck Moore
+ * email: moore3cw@mail.uc.edu
+ * Assignment Number: Final Project
+ * Due Date: 4/29/2025
+ * Course #/Section: IS3050-001
+ * Semester/Year:  Spring 2025
+ * Brief Description of the assignment: Solve a leetcode problem and use a button to print the solution.
+ * Citations: 
+ * chatgpt.com
+ * https://leetcode.com/
+ * Anything else thats relevant: 
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +24,8 @@ enum State { Init, Visiting, Visited }
 
 namespace Bacon_Final_Project
 {
-    public class Solution__2127 {
+    public class Solution__2127
+    {
         public int MaximumInvitations(int[] favorite)
         {
             int n = favorite.Length;
