@@ -1,4 +1,22 @@
-﻿using System;
+﻿/*
+ * File Name : Solution #2179.cs
+ * Student Name: Max Miller
+ * email: mille6mx@mail.uc.edu
+ * Assignment Number: Final Project
+ * Due Date: 4/29/2025
+ * Course #/Section: IS3050-001
+ * Semester/Year:  Spring 2025
+ * Brief Description of the assignment: Solve four leetcode problems and have the .net website 
+ * print the solution of each leetcode problem.
+ * Citations: 
+ * chatgpt.com
+ * https://leetcode.com/
+ * Anything else thats relevant: 
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

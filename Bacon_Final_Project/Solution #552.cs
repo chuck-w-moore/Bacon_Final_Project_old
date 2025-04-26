@@ -1,4 +1,22 @@
-﻿using System;
+﻿/*
+ * File Name : Solution #2179.cs
+ * Student Name: Kush Patel
+ * email: patel5k9@mail.uc.edu
+ * Assignment Number: Final Project
+ * Due Date: 4/29/2025
+ * Course #/Section: IS3050-001
+ * Semester/Year:  Spring 2025
+ * Brief Description of the assignment: Solve four leetcode problems and have the .net website 
+ * print the solution of each leetcode problem.
+ * Citations: 
+ * chatpgt.com
+ * https://leetcode.com/
+ * Anything else thats relevant: 
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,49 +27,52 @@ namespace Bacon_Final_Project
     {
         public class Solution
         {
-            const int MOD = 1000000007;
+
+            const int MOD = 1_000_000_007;
 
             public int CheckRecord(int n)
             {
-                // dp[a][l]: Number of valid sequences of length i with `a` A's and ending in `l` consecutive L's
-                long[,,] dp = new long[n + 1, 2, 3];  // i, A (0 or 1), L (0 to 2)
-                dp[0, 0, 0] = 1;  // base case: empty string is valid
+                // dp[a][l]: a = 0 or 1 A used, l = 0 to 2 consecutive L's
+                long[,] dp = new long[2, 3];
+                dp[0, 0] = 1;
 
-                for (int i = 1; i <= n; i++)
+                for (int day = 0; day < n; day++)
                 {
-                    for (int a = 0; a <= 1; a++)
-                    {
-                        for (int l = 0; l <= 2; l++)
-                        {
-                            // Add 'P' - resets L streak
-                            dp[i, a, 0] = (dp[i, a, 0] + dp[i - 1, a, l]) % MOD;
+                    long[,] prev = (long[,])dp.Clone();
 
-                            // Add 'A' - only if no 'A' used yet
-                            if (a > 0)
-                                dp[i, 1, 0] = (dp[i, 1, 0] + dp[i - 1, 0, l]) % MOD;
+                    // Append 'P' (resets L streak)
+                    dp[0, 0] = (prev[0, 0] + prev[0, 1] + prev[0, 2]) % MOD;
 
-                            // Add 'L' - only if L streak < 2
-                            if (l < 2)
-                                dp[i, a, l + 1] = (dp[i, a, l + 1] + dp[i - 1, a, l]) % MOD;
-                        }
-                    }
+                    // Append 'L' (from previous L count 0 to 1, and 1 to 2)
+                    dp[0, 1] = prev[0, 0];
+                    dp[0, 2] = prev[0, 1];
+
+                    // Append 'A' or 'P' to 1-A record
+                    dp[1, 0] = (prev[0, 0] + prev[0, 1] + prev[0, 2] +
+                                prev[1, 0] + prev[1, 1] + prev[1, 2]) % MOD;
+
+                    // Append 'L' to 1-A records
+                    dp[1, 1] = prev[1, 0];
+                    dp[1, 2] = prev[1, 1];
                 }
 
-                long result = 0;
+                // Sum all valid combinations
+                long total = 0;
                 for (int a = 0; a <= 1; a++)
                     for (int l = 0; l <= 2; l++)
-                        result = (result + dp[n, a, l]) % MOD;
+                        total = (total + dp[a, l]) % MOD;
 
-                return (int)result;
+                return (int)total;
             }
 
-            // Test the function
+            // For testing
             public static void Main()
             {
                 var sol = new Solution();
-                int n = 4;  // Example
-                Console.WriteLine($"Number of valid records of length {n}: {sol.CheckRecord(n)}");
+                int n = 4;
+                Console.WriteLine("Number of valid attendance records of length " + n + ": " + sol.CheckRecord(n));
             }
         }
+
     }
 }
