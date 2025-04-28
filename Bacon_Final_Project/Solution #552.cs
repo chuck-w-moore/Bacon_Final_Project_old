@@ -70,7 +70,7 @@ namespace Bacon_Final_Project
             {
                 var sol = new Solution();
                 int n = 4;
-                Console.WriteLine("Number of valid attendance records of length " + n + ": " + sol.CheckRecord(n));
+                Console.WriteLine("Number of valid attendance records of length is " + sol.CheckRecord(n));
             }
         }
 

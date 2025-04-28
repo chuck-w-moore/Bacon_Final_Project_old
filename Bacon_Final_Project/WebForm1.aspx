@@ -29,7 +29,7 @@
 
     .baconH {
     display: inline-block; 
-    background-color: green;
+    background-color: orange;
     padding: 0.2em 0.5em;   
     border-radius: 5px;     
     color: white;}
