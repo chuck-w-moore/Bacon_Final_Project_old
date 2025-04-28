@@ -68,9 +68,9 @@ namespace Bacon_Final_Project
                         "then a good triplet will be a set (x, y, z) where 0 <= x, y, z <= n - 1, such that pos1x < pos1y < pos1z and pos2x < pos2y < pos2z." +
                         "Return the total number of good triplets.";
                     int[] nums1 = { 2, 0, 1 };
-                    int[] nums2 = { 2, 0, 1 };  // example input for comparison
+                    int[] nums2 = { 2, 0, 1 };  
                     lblTestCase.Text = "Input: nums1 = [2,0,1], nums2 = [2,0,1]";
-                    var sol2179 = new Solution();  // ⚠️ this is the correct class!
+                    var sol2179 = new Solution(); 
                     lblSolution.Text = "Output: " + sol2179.GoodTriplets(nums1, nums2);
                     break;
 
