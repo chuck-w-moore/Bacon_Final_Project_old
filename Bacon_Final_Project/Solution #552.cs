@@ -1,5 +1,5 @@
 ﻿/*
- * File Name : Solution #2179.cs
+ * File Name : Solution #522.cs
  * Student Name: Kush Patel
  * email: patel5k9@mail.uc.edu
  * Assignment Number: Final Project
@@ -70,7 +70,7 @@ namespace Bacon_Final_Project
             {
                 var sol = new Solution();
                 int n = 4;
-                Console.WriteLine("Number of valid attendance records of length " + n + ": " + sol.CheckRecord(n));
+                Console.WriteLine("Number of valid attendance records of length is " + sol.CheckRecord(n));
             }
         }
 
